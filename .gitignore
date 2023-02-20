@@ -2,3 +2,5 @@ data/
 .ipynb_checkpoints/
 .python-version
 store-sales-time-series-forecasting.zip
+.env
+mlruns.tar.gz
