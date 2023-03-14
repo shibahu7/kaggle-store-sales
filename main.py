@@ -1,5 +1,8 @@
 import os
 import mlflow
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def main():
     # [プロジェクト名]_[git hash]_[日付 or 連番]
