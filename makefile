@@ -1,3 +1,5 @@
+include .env
+
 ARG=
 
 build-once:
@@ -5,15 +7,15 @@ build-once:
 
 # 実験フォルダの一覧取得
 list-experiments:
-	mlflow experiments search
+	MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI} mlflow experiments search
 
 # 実験フォルダの作成
 create-experiments:
-	mlflow experiments create -n ${ARG}
+	MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI} mlflow experiments create -n ${ARG}
 
 # 実験フォルダのダウンロード
 get-experiments:
-	mlflow experiments csv -x ${ARG}
+	MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI} mlflow experiments csv -x ${ARG}
 	tar -zcvf mlruns.tar.gz mlruns/
 	rm -r mlruns/
 
