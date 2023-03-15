@@ -1,8 +1,19 @@
 version: '3'
 services:
+  python3.10.6:
+    container_name: main
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    image: kaggle/store_sales:1.0
+    profiles:
+      - extra
+
   mlflow:
     container_name: mlflow
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow
     image: mlflow-tracking:1.0
     environment:
       TZ: Asia/Tokyo
@@ -13,6 +24,8 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
     ports:
       - "5000:5000"
+    extra_hosts:
+      - host.docker.internal:host-gateway
     depends_on:
       - db
       - minio

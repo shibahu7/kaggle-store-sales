@@ -4,3 +4,4 @@ data/
 store-sales-time-series-forecasting.zip
 .env
 mlruns.tar.gz
+__pycache__/
