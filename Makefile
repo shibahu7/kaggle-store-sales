@@ -3,7 +3,7 @@ include .env
 ARG=
 
 build-once:
-	docker-compose -f docker-compose.yml -f docker-compose.createbuckets.yml up
+	docker compose -f docker-compose.yml -f docker-compose.createbuckets.yml up
 
 # 実験フォルダの一覧取得
 list-experiments:
